@@ -1,3 +1,11 @@
+## Version 1.4.0 (2024-04-05)
+
+* [Enhancement] Support Python 3.12.
+
+## Version 1.3.1 (2024-02-21)
+
+* [Fix] Adjust options for django-storages 1.14.
+
 ## Version 1.3.0 (2023-12-22)
 
 * [Enhancement] Support Tutor 17 and Open edX Quince.
