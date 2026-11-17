@@ -74,6 +74,15 @@ And make sure `S3_ADDRESSING_STYLE` is set to `"auto"` (default) and `S3_CUSTOM_
 * For a Ceph Object Gateway that doesn't set [`rgw_dns_name`](https://docs.ceph.com/en/latest/radosgw/config-ref/#confval-rgw_dns_name), you will need `S3_ADDRESSING_STYLE: path`.
 * Due to limitations in Open edX, if you are using `s3v4` signatures, your `S3_PROFILE_IMAGE_BUCKET` must have a public ACL and you must set `S3_PROFILE_IMAGE_CUSTOM_DOMAIN`.
 
+## Content library media
+
+Open edX Learning media, including files attached to content libraries, is stored in the `openedx-learning/` prefix of `S3_STORAGE_BUCKET`.
+The plugin does not set an object ACL and enables signed URLs for these files.
+Ensure the bucket and its policies keep these files private.
+Library media URLs use the S3 endpoint even when `S3_CUSTOM_DOMAIN` is set, so that they can be signed.
+Before enabling the plugin on an existing installation, copy any surviving files from `/openedx/media-private/openedx-learning` into that prefix, preserving their relative paths.
+Files previously lost from ephemeral storage must be restored from a backup or uploaded again.
+
 ## Guide for configuring buckets for AWS S3
 
 Follow [this guide](README-aws.md) to configure buckets on AWS S3 to be used with Open edX.

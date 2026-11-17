@@ -1,5 +1,9 @@
 # Changelog
 
+## Unreleased
+
+* [Fix] Store Open edX Learning content library media in S3 rather than on the local filesystem.
+
 ## Version 2.6.0 (2026-09-11)
 
 * [Fix] Define the `STORAGE_CLASS` for `VIDEO_TRANSCRIPTS_SETTINGS`.

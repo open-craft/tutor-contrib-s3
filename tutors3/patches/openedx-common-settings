@@ -1,4 +1,14 @@
 STORAGES['default']['BACKEND'] = "storages.backends.s3boto3.S3Boto3Storage"
+if "OPENEDX_LEARNING" in globals():
+    OPENEDX_LEARNING["MEDIA"] = {
+        "BACKEND": "storages.backends.s3boto3.S3Boto3Storage",
+        "OPTIONS": {
+            "location": "openedx-learning",
+            "default_acl": None,
+            "querystring_auth": True,
+            "custom_domain": None,
+        },
+    }
 VIDEO_IMAGE_SETTINGS["STORAGE_KWARGS"]["location"] = VIDEO_IMAGE_SETTINGS["STORAGE_KWARGS"]["location"].lstrip("/")
 VIDEO_TRANSCRIPTS_SETTINGS["STORAGE_CLASS"] = "storages.backends.s3boto3.S3Boto3Storage"
 VIDEO_TRANSCRIPTS_SETTINGS["STORAGE_KWARGS"]["location"] = VIDEO_TRANSCRIPTS_SETTINGS["STORAGE_KWARGS"]["location"].lstrip("/")
